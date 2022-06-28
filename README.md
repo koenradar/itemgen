@@ -17,6 +17,8 @@ In the homescreen:
   - MagicGen -> enable magicgen integration
   - Scaling increment -> amount of points a attribute needs to spend before more expensive scaling
   - Amount of items -> amount of items to generate more than 887 generates too many items leaving a incorrect DM
+  - default points -> the points a item gets just for existing before factors like construction level and gemcost
+  - point multiplier -> global point multiplier the balance slider for itemgen
   
 In the attribute screen:
   - Here you can see al the attributes loaded from the AtributeList.txt in the input folder.
