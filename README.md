@@ -28,6 +28,9 @@ Without the UI you have the input folder.
 This is where all the data for itemgen is stored. Removing files from the input folder would most likely result in itemgen crashing.
 Adding more sprites simpley: add more .tga files in the correct folder and they will appear in the mod.
 
+## For help, comments and feedback
+Add a issue here on github or contact me in my channel in the dominionsmods discord.
+
 # Many thanks
 Illwinter for making dominions 5.
 The absolute lads in the immersion server (you know who you are and you know why i want to thank you).
