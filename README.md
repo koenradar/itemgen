@@ -3,6 +3,9 @@ This program generates items for dominions 5. It automaticly generates the items
 due to events. Currently the UI only works in windows and is work in progress.
 
 ## Short user guide
+
+Dont click stats its WIP
+
 ### Generating a standard itemgen
 1. Get the release from github releases.
 2. Unpack the zip
