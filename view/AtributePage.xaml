@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="view.AtributePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:view"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ListView x:Name="AtributeXmlList" SelectedItem="{Binding ChangeItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,32,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="DomminionsModTag" DisplayMemberBinding="{Binding DomminionsModTag}" />
+                    <GridViewColumn Header="PathAffinity" DisplayMemberBinding="{Binding PathAffinityJson}" />
+                    <GridViewColumn Header="DefaultPointCost" DisplayMemberBinding="{Binding DefaultPointCost}" />
+                    <GridViewColumn Header="BasePower" DisplayMemberBinding="{Binding BasePower}" />
+                    <GridViewColumn Header="PowerScaling" DisplayMemberBinding="{Binding PowerScaling}" />
+                    <GridViewColumn Header="ScalingCost" DisplayMemberBinding="{Binding ScalingCost}" />
+                    <GridViewColumn Header="Weight" DisplayMemberBinding="{Binding Weight}" />
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        Header="Remove Atribute"
+                        Click="Atribute_Remove"
+                        Command="{Binding Atribute_Remove}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <Button Content="Add Atribute" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="75" Click="Add_Atribute" />
+        <Button Content="Save Atributes" HorizontalAlignment="Left" Margin="598,7,0,0" VerticalAlignment="Top" Width="82" Click="Save_Atribute" />
+        <Button Content="Load Atributes" HorizontalAlignment="Left" Margin="708,7,0,0" VerticalAlignment="Top" Width="82" Click="Load_Atribute" />
+    </Grid>
+</UserControl>

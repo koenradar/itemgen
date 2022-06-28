@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="view.AddAtributePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:view"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="109" Margin="10,10,0,0" VerticalAlignment="Top" Width="132">
+            <StackPanel>
+                <Label Content="Name" />
+                <TextBox Height="23" Text="" TextWrapping="Wrap" x:Name="Name" TextChanged="TextChanged" />
+                <Label Content="Weight" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="Weight" TextChanged="TextChanged" />
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="109" Margin="150,10,0,0" VerticalAlignment="Top" Width="132">
+            <StackPanel Margin="-1,-1,1,1">
+                <Label Content="DomminionsModTag" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="DomminionsModTag" TextChanged="TextChanged" />
+                <Label Content="PathAffinity" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="PathAffinity" TextChanged="TextChanged" />
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="109" Margin="292,10,0,0" VerticalAlignment="Top" Width="132">
+            <StackPanel>
+                <Label Content="DefaultCost" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="DefaultCost" TextChanged="TextChanged" />
+                <Label Content="BasePower" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="BasePower" TextChanged="TextChanged" />
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="109" Margin="435,10,0,0" VerticalAlignment="Top" Width="132">
+            <StackPanel>
+                <Label Content="ScalingCost" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="ScalingCost" TextChanged="TextChanged" />
+                <Label Content="PowerScaling" />
+                <TextBox Height="23" TextWrapping="Wrap" Text="" x:Name="PowerScaling" TextChanged="TextChanged" />
+            </StackPanel>
+        </Border>
+
+        <Button Content="Add Atribute" HorizontalAlignment="Left" Margin="30,285,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="view.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:view"
+        mc:Ignorable="d"
+        Title="ItemGen" Height="450" Width="800">
+    <Grid x:Name="body">
+        <DockPanel LastChildFill="False" Height="25" VerticalAlignment="Top">
+            <Menu DockPanel.Dock="Top" Height="25" VerticalAlignment="Top">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel HorizontalAlignment="Stretch" />
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem Header="Homescreen" Name="MenuButton" Margin="0 0 10 0" Height="25" Width="82" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ShowHomescreen" BorderBrush="Black">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Go to Homescreen</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="Atributes" Name="Atributes" Margin="0 0 10 0" Height="25" Width="64" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Atributes_Click" BorderBrush="Black">
+                    <MenuItem.ToolTip>
+                        <ToolTip>List of Atributes</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="Stats" Name="Stats" Height="25" Margin="0 0 10 0" Width="65" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Stats_Click" BorderBrush="Black">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Statistical overview of Itemgen</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="Generate!" Name="GenerateButton" Height="25" Width="63" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click" BorderBrush="Black">
+                    <MenuItem.ToolTip>
+                        <ToolTip>Generate the mod</ToolTip>
+                    </MenuItem.ToolTip>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Grid Name="grControls" Margin="0,25,0,0">
+            <CheckBox x:Name="Debugging" Content="Debugging" HorizontalAlignment="Left" Margin="20,94,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="MagicGen" Content="Magicgen" Margin="20,74,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+            <TextBox x:Name="ScalingIncrement" HorizontalAlignment="Left" Margin="189,94,0,0" Text="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="nl-nl" Text="Amount of items"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="189,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="nl-nl" Text="Scaling Increment"/></TextBlock>
+            <TextBox x:Name="AmountOfItems" HorizontalAlignment="Center" Margin="0,94,0,0" Text="887" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+    </Grid>
+</Window>
