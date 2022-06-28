@@ -16,7 +16,8 @@ namespace data
         public static int AmountOfItems { get; set; } = 887; // default 499 max possible 887 
 
         public static bool DebugLogging1 = false;
-        public static bool MagicGen = true;
+        public static bool MagicGen = false;
+        public static string MagicGenName = "";
         public static Random Rng { get; set; } = new();
         public static uint GenNumber { get; set; }
         private static string Path { get; set; }
@@ -43,12 +44,15 @@ namespace data
         /// decide the settings for itemgen
         /// </summary>
         /// <returns>IsSuccesfull</returns>
-        public static void Settings(int amountOfItems = 887, bool magicGen = false, bool debugging = false, int scalingIncrement = 20)
+        public static void Settings(int amountOfItems = 887, bool magicGen = false, bool debugging = false, int scalingIncrement = 20, string magicGenName = "", int defaultPoints = 10, double pointMultiplier = 0.7)
         {
             AmountOfItems = amountOfItems;
             MagicGen = magicGen;
             DebugLogging1 = debugging;
             ScalingDoublingIncrement = scalingIncrement;
+            MagicGenName = magicGenName;
+            Item.DefaultPoints = defaultPoints;
+            Item.PointMultiplier = pointMultiplier;
         }
         
         // TODO -> refactor this shit
@@ -331,6 +335,7 @@ namespace data
         /// </summary>
         public static void GenerateMod()
         {
+            SetSpells();
             ItemList = FillItemList(AmountOfItems);
             EnsureBoosterPerPath();
 
@@ -493,43 +498,43 @@ namespace data
             SpellEffects = spellEffects;
         }
 
+        public static void SetSpells()
+        {
+            ReadSpellJson();
+            if (MagicGen && !string.IsNullOrEmpty(MagicGenName))
+            {
+                Spells = new List<Spell>();
+                ReadMagicGenDm(MagicGenName);
+            }
+            if (Spells.Count == 0 || SpellEffects.Count == 0)
+            {
+                Debug.WriteLine("No spell json found");
+            }
+            else
+            {
+                foreach (var spell in Spells)
+                {
+                    spell.EffectSpell = SpellEffects.First(x => x.Record_Id == spell.Effect_Record_Id);
+                }
+
+                Atribute.UpdateAtributeLists(GenerateSpellAtributeList());
+            }
+        }
+
         /// <summary>
         /// Static constructor to fill some statics
         /// </summary>
         static Controller()
         {
             List<Atribute> tempAtributeList = AtributeJSON.ReadAtributeList();
-            ReadSpellJson();
+            
             Sprite a = new Sprite("test", Type.two_handed);
-            
-            if(MagicGen)
-            {
-                Spells = new List<Spell>();
-                string dmName = "magicgen-sampleformeka.dm";
-                ReadMagicGenDm(dmName);
-            }
-           
-            
 
             var lines = File.ReadLines(System.AppDomain.CurrentDomain.BaseDirectory + "/input/NeccesaryItemsVanilla.txt");
             foreach (string line in lines)
             {
                 int NeccesarItemID = int.Parse(line);
                 NessesaryVanillaItems.Add(NeccesarItemID);
-            }
-
-            if (Spells.Count == 0 || SpellEffects.Count == 0)
-            {
-                Debug.WriteLine("No spell json found");
-            }
-            else
-            { 
-                foreach (var spell in Spells)
-                {
-                    spell.EffectSpell = SpellEffects.First(x => x.Record_Id == spell.Effect_Record_Id);
-                }
-
-                tempAtributeList = tempAtributeList.Concat(GenerateSpellAtributeList()).ToList();
             }
 
             if (tempAtributeList.Count > 0)

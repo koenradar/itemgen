@@ -28,14 +28,14 @@ namespace view
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(AmountOfItems.Text, out int amountResult) && int.TryParse(ScalingIncrement.Text, out int scalingResult) && MagicGen.IsChecked.HasValue && Debugging.IsChecked.HasValue)
+            if (int.TryParse(AmountOfItems.Text, out int amountResult) && int.TryParse(ScalingIncrement.Text, out int scalingResult) && int.TryParse(DefaultPoints.Text, out int defaultResult) && int.TryParse(PointMultiplier.Text, out int multiplierResult) && MagicGen.IsChecked.HasValue && Debugging.IsChecked.HasValue)
             {
                 try
                 {
                     
                     bool magicGenIsChecked = MagicGen.IsChecked.Value;
                     bool debuggingIsChecked = Debugging.IsChecked.Value;
-                    Controller.Settings(amountResult, magicGenIsChecked, debuggingIsChecked, scalingResult);
+                    Controller.Settings(amountResult, magicGenIsChecked, debuggingIsChecked, scalingResult, MagicGenName.Text, defaultResult, multiplierResult);
                     Controller.GenerateMod();
                 }
                 catch (Exception exception)
@@ -44,15 +44,18 @@ namespace view
                     throw;
                 }
             }
-            try
+            else
             {
-                Controller.Settings();
-                Controller.GenerateMod();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-                throw;
+                try
+                {
+                    Controller.Settings();
+                    Controller.GenerateMod();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
         }
 
@@ -79,11 +82,24 @@ namespace view
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            if (sender.Equals(MagicGen))
+            {
+                MagicGenName.IsEnabled = !MagicGenName.IsEnabled;
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

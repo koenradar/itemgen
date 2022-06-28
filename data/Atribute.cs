@@ -206,12 +206,12 @@ namespace data
                 }
             }
 
-            AllAtributes = tempList.FindAll(att => att.DomminionsModTag != null && att.BasePower != 0);
+            AllAtributes = AllAtributes.Concat(tempList.FindAll(att => att.DomminionsModTag != null && att.BasePower != 0)).ToList();
 
             // Affinity
-            FillerAtributes = AllAtributes.Where(att => att.Affinity == AttributeAffinity.filler).ToList();
-            StandaloneAtributes = AllAtributes.Where(att => att.Affinity == AttributeAffinity.standalone).ToList();
-            NegativeAtributes = AllAtributes.Where(att => att.Affinity == AttributeAffinity.negative).ToList();
+            FillerAtributes = FillerAtributes.Concat(AllAtributes.Where(att => att.Affinity == AttributeAffinity.filler)).ToList();
+            StandaloneAtributes = StandaloneAtributes.Concat(AllAtributes.Where(att => att.Affinity == AttributeAffinity.standalone)).ToList();
+            NegativeAtributes = NegativeAtributes.Concat(AllAtributes.Where(att => att.Affinity == AttributeAffinity.negative)).ToList();
 
             // types
             foreach (AttributeType type in Enum.GetValues(typeof(AttributeType)))

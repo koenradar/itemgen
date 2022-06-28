@@ -36,7 +36,9 @@ namespace data
 
         public string Description { get; set; }
         public string SpriteOld { get; set; }
-        public Sprite Sprite { get; set; }
+        private Sprite Sprite { get; set; }
+        public static int DefaultPoints = 10;
+        public static double PointMultiplier = 0.7;
         private List<string> DebugInfo { get; set; }
 
         public List<Atribute> AtributeList { get; private set; }
@@ -245,7 +247,7 @@ namespace data
             if (constLevel == 8)
                 constMultiplier += 1;
 
-            int points = 10; // 7 - 10 (10 for latest gen)
+            int points = DefaultPoints; 
             if (crossPathLevel != null)
             {
                 points += Controller.PathLevelToGemCost(mainPathLevel) * constMultiplier + Controller.PathLevelToGemCost((int)crossPathLevel) * constMultiplier;
@@ -255,7 +257,7 @@ namespace data
                 points += Controller.PathLevelToGemCost(mainPathLevel) * constMultiplier;
             }
 
-            points = (int)(points * 0.7); // 0.5 is sane default
+            points = (int)(points * PointMultiplier);
 
             int pointsBeforeChange = points;
 
