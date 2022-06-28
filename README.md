@@ -27,7 +27,7 @@ This is where all the data for itemgen is stored. Removing files from the input 
 Adding more sprites simpley: add more .tga files in the correct folder and they will appear in the mod.
 
 # Many thanks
-Illwinter for making dominions 5
+Illwinter for making dominions 5.
 The absolute lads in the immersion server (you know who you are and you know why i want to thank you).
 The first testers for the test game ran in immersion.
 The guy who wanted my mod for a game with every random generator (and his welcome input).
