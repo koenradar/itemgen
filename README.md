@@ -14,7 +14,7 @@ The ui provides basic functionality for changing the different variables that co
 
 In the homescreen:
   - Debugging -> write additional informantion in the DM
-  - MagicGen -> enable magicgen integration
+  - MagicGen -> enable magicgen integration THIS NEEDS the mergetool otherwise the weapons are wrong (on the todo)
   - Scaling increment -> amount of points a attribute needs to spend before more expensive scaling
   - Amount of items -> amount of items to generate more than 887 generates too many items leaving a incorrect DM
   - default points -> the points a item gets just for existing before factors like construction level and gemcost
