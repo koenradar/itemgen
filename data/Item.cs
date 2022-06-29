@@ -718,7 +718,7 @@ namespace data
 
         private static AttributeType GetArcheType(Type type)
         {
-            int rng = Controller.Rng.Next(0, 5);
+            int rng = Controller.Rng.Next(0, 6);
 
             if (type is Type.missle_weapon && rng is 3 or 4 or 5) // dit stuk is echt gruwelijk
             {

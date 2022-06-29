@@ -286,7 +286,7 @@ namespace data
                 {
                     System.IO.Directory.CreateDirectory(folderDirectory);
 
-                    var files = System.IO.Directory.GetFiles(System.AppDomain.CurrentDomain.BaseDirectory + "/input/Sprites"); // TODO ADD MORE SPRITE OPTIONS
+                    var files = System.IO.Directory.GetFiles(System.AppDomain.CurrentDomain.BaseDirectory + "/Sprites"); // TODO ADD MORE SPRITE OPTIONS
                     foreach (var file in files)
                     {
                         string[] splitString = file.Split('/');
