@@ -385,10 +385,26 @@ namespace data
             if (type == Type.one_handed)
             {
                 creatingWeaponType = (WeaponType) Controller.Rng.Next(0, 6);
+                if (archeType == AttributeType.Magic)
+                {
+                    creatingWeaponType = WeaponType.One_Handed_Staff;
+                }
+                else if (creatingWeaponType == WeaponType.One_Handed_Staff)
+                {
+                    creatingWeaponType = WeaponType.One_Handed_Axe;
+                }
             }
             else if (type == Type.two_handed)
             {
                 creatingWeaponType = (WeaponType) Controller.Rng.Next(6, 11);
+                if (archeType == AttributeType.Magic)
+                {
+                    creatingWeaponType = WeaponType.Two_Handed_Staff;
+                }
+                else if(creatingWeaponType == WeaponType.Two_Handed_Staff)
+                {
+                    creatingWeaponType = WeaponType.Two_Handed_Pike;
+                }
             }
             else // misile
             {

@@ -523,6 +523,9 @@ namespace data
             List<Atribute> bothPathArchetypeAtributes = mainPathArchetypeAtributes.Intersect(crossPathArchetypeAtributes).ToList();
             List<Atribute> allAtributesLocal = Atribute.AllAtributes.ToList();
 
+            List<Atribute> standaloneMainPathArchetypeAtributes = mainPathArchetypeAtributes.Intersect(Atribute.AllAtributes.Where(x => x.Affinity == AttributeAffinity.standalone)).ToList();
+            List<Atribute> standaloneCrossPathArchetypeAtributes = crossPathArchetypeAtributes.Intersect(Atribute.AllAtributes.Where(x => x.Affinity == AttributeAffinity.standalone)).ToList();
+
             if (ItemCurrentId < 499)
             {
                 archetypeAtributes.RemoveAll(x => x.DomminionsModTag == "#copyitem");
@@ -563,6 +566,14 @@ namespace data
                     if (bothPathArchetypeAtributes.Count > 0 && Controller.BoolFromRng(80))
                     {
                         localAtribute = Atribute.GetAtributeFrom(bothPathArchetypeAtributes);
+                    }
+                    else if (standaloneMainPathArchetypeAtributes.Count > 0 && Controller.BoolFromRng(80))
+                    {
+                        localAtribute = Atribute.GetAtributeFrom(standaloneMainPathArchetypeAtributes);
+                    }
+                    else if (standaloneCrossPathArchetypeAtributes.Count > 0 && Controller.BoolFromRng(80))
+                    {
+                        localAtribute = Atribute.GetAtributeFrom(standaloneCrossPathArchetypeAtributes);
                     }
                     else if (mainPathArchetypeAtributes.Count > 0 && Controller.BoolFromRng(70))
                     {
@@ -642,7 +653,7 @@ namespace data
                     int chanceForScalingNegative = 60;
                     if (constLevel <= 4)
                     {
-                        chanceForScalingPostive += 10; // 100% chance to stack as much as posible in one attribute
+                        chanceForScalingPostive += 100; // 100% chance to stack as much as posible in one attribute
                         chanceForScalingNegative -= 20; // less negative scaling on lower levels
                     }
                     if (localAtribute.ScalingCost > 0 && Controller.BoolFromRng(chanceForScalingPostive))
@@ -720,13 +731,17 @@ namespace data
         {
             int rng = Controller.Rng.Next(0, 6);
 
-            if (type is Type.missle_weapon && rng is 3 or 4 or 5) // dit stuk is echt gruwelijk
+            if (type is Type.missle_weapon && rng is 3 or 4 or 5)
             {
                 rng = 0;
             }
             else if (type is Type.one_handed or Type.two_handed && rng is 4 or 5)
             {
                 rng = rng is 4 ? 0 : 1;
+            }
+            else if (type == Type.crown && rng is 0 or 1)
+            {
+                rng += 2;
             }
 
             if (Controller.BoolFromRng(50) && rng == 4)

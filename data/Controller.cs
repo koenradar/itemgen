@@ -478,7 +478,7 @@ namespace data
 
         public static bool BoolFromRng(int chanceToSucceed)
         {
-            return Rng.Next(0, 101) <= chanceToSucceed;
+            return Rng.Next(1, 101) <= chanceToSucceed;
         }
 
         public static void ReadSpellJson()

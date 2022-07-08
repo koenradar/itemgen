@@ -2604,14 +2604,14 @@
     "TypesJson": "Other"
   },
   {
-    "Name": "ARTIFACT  ONLY? Gold maker",
+    "Name": "Gold maker",
     "DomminionsModTag": "#gold",
     "PathAffinityJSON": "[earth]",
     "DefaultPointCost": 10,
     "BasePower": 100,
     "ScalingCost": 1,
     "PowerScaling": 10,
-    "MinimumConstLevel": 6,
+    "MinimumConstLevel": 8,
     "Weight": 1,
     "MaxValue": 1000,
     "Scaling": "Normal",
