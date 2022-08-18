@@ -17,7 +17,6 @@ namespace data
         public int ResearchLevel { get; set; }
         public int Path1 { get; set; }
         public int PathLevel1 { get; set; }
-
         public int Path2 { get; set; }
         public int PathLevel2 { get; set; }
         public int Effect_Record_Id { get; set; }
@@ -26,8 +25,9 @@ namespace data
         public int FatigueCost { get; set; }
         public int GemCost { get; set; }
         public int Next_Spell { get; set; }
-
         public bool IsRitual { get; set; }
+
+        public static List<int> Weaponids = new List<int>();
 
         public EffectSpell EffectSpell { get; set; }
 

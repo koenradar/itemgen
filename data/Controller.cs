@@ -577,6 +577,7 @@ namespace data
             List<int> fatigueCosts = new List<int>();
             List<int> effectRecordIds = new List<int>();
             List<bool> isRituals = new List<bool>();
+            List<int> WeaponIds = new List<int>();
 
             bool newSpell = false;
             
@@ -593,6 +594,18 @@ namespace data
                     }
                     ids.Add(int.Parse(numbers));
                     newSpell = true;
+                }
+
+                if (line.Contains("#newweapon"))
+                {
+                    int y = 0;
+                    List<char> chars = line.Where(x => int.TryParse(x.ToString(), out y)).ToList();
+                    string numbers = "";
+                    foreach (var c in chars)
+                    {
+                        numbers += c;
+                    }
+                    WeaponIds.Add(int.Parse(numbers));
                 }
                 else if (line.Contains("#name") && newSpell)
                 {
@@ -629,7 +642,7 @@ namespace data
                     }
 
                     effectRecordIds.Add(id);
-                }  
+                }
                 else if (line.Contains("#path ") && newSpell)
                 {
                     int y = 0;
@@ -654,8 +667,6 @@ namespace data
                     {
                         path2s.Add(path);
                     }
-
-                   
                 }
                 else if (line.Contains("#pathlevel") && newSpell)
                 {
@@ -681,7 +692,6 @@ namespace data
                     {
                         pathLevel2s.Add(path);
                     }
-
                 }
                 else if (line.Contains("#researchlevel") && newSpell)
                 {
@@ -717,6 +727,8 @@ namespace data
                 Spell spell = new Spell(ids[i], names[i], researchLevels[i], path1s[i], pathLevel1s[i], path2s[i], pathLevel2s[i], fatigueCosts[i], effectRecordIds[i], isRituals[i] );
                 Spells.Add(spell);
             }
+
+            Spell.Weaponids = WeaponIds;
         }
 
         private static List<Atribute> GenerateSpellAtributeList()

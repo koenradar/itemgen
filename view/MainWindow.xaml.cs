@@ -28,7 +28,7 @@ namespace view
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(AmountOfItems.Text, out int amountResult) && int.TryParse(ScalingIncrement.Text, out int scalingResult) && int.TryParse(DefaultPoints.Text, out int defaultResult) && int.TryParse(PointMultiplier.Text, out int multiplierResult) && MagicGen.IsChecked.HasValue && Debugging.IsChecked.HasValue)
+            if (int.TryParse(AmountOfItems.Text, out int amountResult) && int.TryParse(ScalingIncrement.Text, out int scalingResult) && int.TryParse(DefaultPoints.Text, out int defaultResult) && double.TryParse(PointMultiplier.Text, out double multiplierResult))
             {
                 try
                 {

@@ -37,7 +37,9 @@ namespace data
         public string Description { get; set; }
         public string SpriteOld { get; set; }
         private Sprite Sprite { get; set; }
+
         public static int DefaultPoints = 10;
+
         public static double PointMultiplier = 0.7;
         private List<string> DebugInfo { get; set; }
 

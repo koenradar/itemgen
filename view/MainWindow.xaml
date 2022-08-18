@@ -38,16 +38,16 @@
         </DockPanel>
         <Grid Name="grControls" Margin="0,25,0,0">
             <CheckBox x:Name="Debugging" Content="Debugging" HorizontalAlignment="Left" Margin="20,73,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-            <CheckBox x:Name="MagicGen" Content="Magicgen" Margin="20,95,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <CheckBox x:Name="MagicGen" Content="Modded Spells" Margin="20,95,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
             <TextBox x:Name="ScalingIncrement" HorizontalAlignment="Left" Margin="189,94,0,0" Text="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="nl-nl" Text="Amount of items"/></TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="189,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="nl-nl" Text="Scaling Increment"/></TextBlock>
             <TextBox x:Name="AmountOfItems" HorizontalAlignment="Center" Margin="0,94,0,0" Text="887" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-            <TextBox x:Name="MagicGenName" HorizontalAlignment="Left" Margin="20,125,0,0" Text="Magicgen DM name (.dm)" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1" IsEnabled="False"/>
+            <TextBox x:Name="MagicGenName" HorizontalAlignment="Left" Margin="20,125,0,0" Text="DM name (.dm)" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1" IsEnabled="False"/>
             <TextBlock HorizontalAlignment="Left" Margin="189,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="nl-nl" Text="Default points for item"/></TextBlock>
             <TextBlock HorizontalAlignment="Center" Margin="0,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Language="nl-nl" Text="Point multiplier"/></TextBlock>
             <TextBox x:Name="DefaultPoints" HorizontalAlignment="Left" Margin="189,147,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
-            <TextBox x:Name="PointMultiplier" HorizontalAlignment="Center" Margin="0,147,0,0" Text="0.7" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
+            <TextBox x:Name="PointMultiplier" HorizontalAlignment="Center" Margin="0,147,0,0" Text="0,7" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
         </Grid>
     </Grid>
 </Window>

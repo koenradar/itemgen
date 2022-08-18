@@ -36,6 +36,11 @@ namespace data
         // Melee
         public Weapon(int numberOfAttacks, int damage, int attackValue, int defenceValue, List<DamageType> damageTypes, int length, WeaponType weaponType)
         {
+            while (Spell.Weaponids.Contains(Id))
+            {
+                Id += 1;
+            }
+
             ThisId = Id;
             Id++;
             NumberOfAttacks = numberOfAttacks;
